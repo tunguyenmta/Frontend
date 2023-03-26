@@ -1,0 +1,186 @@
+.main-section .logo-brand img{
+    width: 70px;
+    height: 70px;
+}
+
+/* .above-section{
+    position: fixed;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10000;
+}
+
+.above-section.dark{
+    background-color: rgba(38, 41, 45, 0.7) !important;
+} */
+
+.above-section button{
+    width: 40px;
+    height: 20px;
+    border: 0;
+    background-color: #0d61a4;
+    border-radius: 25px;
+    position: relative;
+}
+
+.above-section a{
+    text-decoration: none;
+    margin-right: 10px;
+    font-size: 13px;
+}
+
+.above-section a:first-of-type{
+    background-color: #B3E5BE;
+    padding: 5px 15px;
+    border-radius: 15px;
+    color: #E96479;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.above-section a:first-of-type:hover{
+    background-color: #AA77FF;
+    color: #97DEFF;
+}
+
+.above-section a:last-of-type{
+    color: #270082;
+    transition: color 0.4 ease;
+}
+
+.above-section a:last-of-type:hover{
+    color: #3A98B9;
+}
+
+.above-section button::before{
+    content: '';
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    background-color: white;
+    transition: left 0.5s;
+}
+
+.above-section button.active::before{
+    left: 50%;
+}
+
+#cart{
+    transition: scale 0.4s;
+}
+
+#cart:hover{
+    scale: 1.1;
+}
+
+
+.above-section p{
+    font-size: 11px;
+    margin-top: 15px;
+    color: black;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+    margin-right: 25px;
+}
+
+.above-section.dark p{
+    color: white;
+}
+
+.main-section .logo-brand span{
+    font-size: 30px;
+    color: #1b1b1b;
+    font-weight: bold;
+    margin-left: 5px;
+    display: inline-block;
+    transform: translateY(5px);
+}
+
+.main-section.dark .logo-brand span{
+    color: white;
+}
+
+.main-section{
+    background-color: #eaf0f8;
+    border-bottom: 4px solid lightgray;
+}
+
+.main-section.dark{
+    background-color: #222426;
+}
+
+.main-section.dark .logo-brand{
+    background-color: #222426;
+}
+
+.main-section.dark .form-search{
+    background-color: #222426;
+}
+
+.main-section.dark .form-search input{
+    background-color: black;
+}
+
+.main-section.dark .form-search input::placeholder{
+    color: white;
+}
+
+.main-section.dark .form-search button{
+    color: black;
+    background-color: #86a9d6;
+}
+
+.form-search input{
+    
+    width: 50%;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 0;
+    color: black;
+    padding: 5px;
+}
+
+.form-search button{
+    border: 0;
+    transform: translateY(-2px);
+    height: 34px;
+    background-color: #0d61a4;
+    color: white;
+    font-size: 12px;
+    padding: 0 20px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    transition: background-color 0.5s;
+}
+
+.main-section.dark .form-search button:hover{
+    background-color: #0d61a4;
+}
+
+.form-search button:focus-visible{
+    outline: none;
+    background-color: #97DEFF;
+}
+
+.form-search button:hover{
+    background-color: #347ab3;
+}
+
+.form-search{
+    margin-bottom: 20px;
+    
+}
+
+.form-search input::placeholder{
+    color: black;
+    font-size: 12px;
+}
+
+.form-search input:focus-visible{
+    outline: none;
+    border-bottom: 2px solid #347ab3;
+}
