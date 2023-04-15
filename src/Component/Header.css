@@ -14,6 +14,44 @@
     background-color: rgba(38, 41, 45, 0.7) !important;
 } */
 
+#logout::before{
+    display: none;
+
+}
+
+#logout:hover{
+    background-color: #E96479;
+    color: white;
+}
+
+#logout.dark{
+    background-color: #B3E5BE;
+    color: #AA77FF; 
+}
+
+.user-avatar{
+    width: 35px;
+    height: 35px;
+    filter: invert(89%) sepia(20%) saturate(273%) hue-rotate(117deg) brightness(98%) contrast(96%);
+    border-radius: 50%;
+}
+
+.above-section a.dashboard{
+    background-color: transparent !important;
+    padding: 0 !important;
+    padding-right: 5px !important; 
+    border-radius: 0 !important;
+}
+
+#logout{
+    margin-right: 10px;
+    font-size: 12px;
+    width: 70px;
+    height: 30px;
+    color: chocolate;
+    transition: all 0.4s ease;
+}
+
 .above-section button{
     width: 40px;
     height: 20px;

@@ -1,0 +1,23 @@
+.form-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.form-content h2{
+    padding: 20px;
+    font-size: 24px;
+
+}
+
+.form-content input{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.form-content label{
+    display: block;
+    padding-top: 5px;
+}

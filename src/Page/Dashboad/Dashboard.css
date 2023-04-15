@@ -1,0 +1,142 @@
+.dashboard-container{
+    padding: 100px 300px 100px 300px;
+    background: rgba(57, 48, 83, 0.2);
+}
+
+.dashboard-content .dashboard-left, .dashboard-right{
+    width: 50%;
+}
+
+.dashboard-content .dashboard-left{
+    background: linear-gradient(to bottom, #0A2647,#2C74B3);
+    padding: 50px 0 50px 50px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.dashboard-left .left-content{
+    width: 80%;
+    text-align: center;
+}
+
+.dashboard-left .left-content h3{
+    color: white;
+}
+
+.dashboard-avatar img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.dashboard-avatar{
+    padding-bottom: 20px;
+    margin-top: 20px;
+    justify-content: center;
+}
+.dashboard-avatar .avatar-content{
+    text-align: center;
+}
+
+.dashboard-avatar .avatar-content label{
+    padding: 5px;
+    border: 1px dashed gray;
+    cursor: pointer;
+    margin-left: 10px;
+    background-color: blueviolet;
+}
+
+.icon-container{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.icon-container{
+    cursor: pointer;
+    padding-top: 2px;
+}
+
+.icon-container:first-of-type{
+    background-color: #2C74B3;
+    color: white;
+}
+
+.icon-container:nth-of-type(2){
+    background-color: darkblue;
+    color: white;
+}
+
+.icon-container:last-of-type{
+    background-color: lightcoral;
+    color: white;
+}
+
+.selections ul{
+    list-style: none;
+    text-align: left;
+}
+
+.selections ul li{
+    padding: 20px;
+    cursor: pointer;
+}
+
+.selections ul li p{
+    color: lightgray;
+    margin: 0;
+}
+.selections ul li h2{
+    color: white;
+    font-size: 24px;
+    margin: 0;
+}
+
+.selections ul li.active {
+    background-color: white;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.selections ul li.active h2{
+    color: black;
+}
+
+.selections ul li button{
+    border: 0;
+    background-color: transparent;
+    text-align: left;
+}
+
+.dashboard-right{
+    background-color: white;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.dashboard-right{
+    padding: 20px;
+}
+
+.btn-change{
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: 0;
+    border-radius: 15px;
+    background-color: springgreen;
+    color: white;
+}
+.form-content{
+    text-align: center;
+}
+
+.btn-update{
+    padding: 5px 20px;
+    border-radius: 25px;
+    border: 0;
+    margin-top: 10px;
+    background-color: #2C74B3;
+    color: white;
+}
