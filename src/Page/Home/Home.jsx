@@ -5,6 +5,7 @@ import Card from "../../Component/Card";
 import Header from "../../Component/Header";
 import Footer from "../../Component/Footer";
 import axios from "axios";
+import LoadingSpinner from "../../Component/LoadingSpinner";
 function Home() {
   const [theme, setTheme] = useState("light");
   const [data, setData] = useState();
@@ -39,7 +40,7 @@ function Home() {
       >
         <div className="game-list row mx-2 px-2">
           {loading ? (
-            <h1>Loading</h1>
+            <LoadingSpinner></LoadingSpinner>
           ) : (
             data.map((element) => {
               return (
