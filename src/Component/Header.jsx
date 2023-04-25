@@ -3,7 +3,7 @@ import "./Header.css";
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import logo from "../Asset/logo-3.png";
 import { Link } from "react-router-dom";
-function Header({ onClick, theme }) {
+function Header({ onClick, theme, login }) {
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     if (user) {
@@ -16,6 +16,7 @@ function Header({ onClick, theme }) {
         avatar: img,
         token: user.token,
       });
+      login();
     } else {
       setUser({
         name: null,
@@ -39,6 +40,7 @@ function Header({ onClick, theme }) {
       avatar: null,
       token: null,
     });
+    login();
   };
   return (
     <div>

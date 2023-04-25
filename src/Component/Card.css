@@ -143,3 +143,8 @@
     color: gray;
     transition: color 0.3s ease;
 }
+
+.rating-star h6{
+    color: orange;
+    font-size: 12px;
+}

@@ -7,11 +7,16 @@ import Footer from "../../Component/Footer";
 import axios from "axios";
 import LoadingSpinner from "../../Component/LoadingSpinner";
 function Home() {
+  const [trigger, setTrigger] = useState(false);
   const [theme, setTheme] = useState("light");
   const [data, setData] = useState();
   const [loading, setLoading] = useState("true");
   const changeTheme = (Str) => {
     setTheme(Str);
+  };
+  const [isLogin, setIsLogin] = useState(false);
+  const userLogin = () => {
+    setIsLogin((prev) => !prev);
   };
   async function getData() {
     let serverData = await axios.get("http://localhost:5000/api/game/");
@@ -24,15 +29,16 @@ function Home() {
     setData(gameData);
   }
   useEffect(() => {
+    console.log(loading);
     getData();
-  }, []);
+  }, [trigger]);
   return (
     <div
       className={
         theme === "light" ? "theme-light text-center" : "theme-dark text-center"
       }
     >
-      <Header onClick={changeTheme} theme={theme}></Header>
+      <Header onClick={changeTheme} theme={theme} login={userLogin}></Header>
       <div
         className={
           theme === "light" ? "theme-light container" : "theme-dark container"
@@ -45,7 +51,10 @@ function Home() {
             data.map((element) => {
               return (
                 <Card
+                  reload={setTrigger}
+                  isLogin={isLogin}
                   key={element._id}
+                  gameId={element._id}
                   imgSrc={element.image}
                   name={element.title}
                   iconSrc={element.icon}
@@ -53,6 +62,7 @@ function Home() {
                   vote={element.rating}
                   rated={element.rated}
                   theme={theme}
+                  loading={setLoading}
                 ></Card>
               );
             })
