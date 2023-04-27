@@ -29,14 +29,14 @@ function Card({
     loading,
   });
   const [rating, setRating] = useState(0);
-  const blob = new Blob([Int8Array.from(data.imgSrc.data.data)], {
-    type: data.imgSrc.contentType,
-  });
-  const img = window.URL.createObjectURL(blob);
-  const blob2 = new Blob([Int8Array.from(data.iconSrc.data.data)], {
-    type: data.iconSrc.contentType,
-  });
-  const icon = window.URL.createObjectURL(blob2);
+  // const blob = new Blob([Int8Array.from(data.imgSrc.data.data)], {
+  // type: data.imgSrc.contentType,
+  // });
+  // const img = window.URL.createObjectURL(blob);
+  // const blob2 = new Blob([Int8Array.from(data.iconSrc.data.data)], {
+  // type: data.iconSrc.contentType,
+  // });
+  // const icon = window.URL.createObjectURL(blob2);
   const [isRate, setIsRate] = useState(false);
   const handleRate = async (stars) => {
     const rated = await axios.post(
@@ -56,10 +56,10 @@ function Card({
       }
     >
       <div className="card-img">
-        <img src={img} alt={data.name}></img>
+        <img src={data.imgSrc} alt={data.name}></img>
       </div>
       <div className="card-icon">
-        <img src={icon} alt={data.name}></img>
+        <img src={data.iconSrc} alt={data.name}></img>
       </div>
       <h2 className="title">{data.name}</h2>
       <div className="card-desc">
