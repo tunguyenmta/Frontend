@@ -10,6 +10,7 @@ import Term from './Component/Term';
 import Dashboard from './Page/Dashboad/Dashboard';
 import { ToastContainer, toast } from 'react-toastify';
 import '../node_modules/react-toastify/dist/ReactToastify.css'
+import CreateGame from "./Component/CreateGame"
 function App() {
   return (
     <div className="App">
@@ -22,6 +23,7 @@ function App() {
         <Route path='/Term' element={<Term />}></Route>
         <Route path='/Test' element={<TestUser />}></Route>
         <Route path='/Dashboard' element={<Dashboard></Dashboard>}></Route>
+        <Route path='/CreateGame' element={<CreateGame></CreateGame>}></Route>
       </Routes>
     </div>
   );

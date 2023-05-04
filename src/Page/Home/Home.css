@@ -5,3 +5,48 @@
 .theme-light{
     background-color: white;
 }
+
+.addContainer{
+    height: 400px;
+    width: 350px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: white;
+    margin: 50px 35px;
+    padding-left: 0;
+    padding-right: 0;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.addContainer.usable{
+    background-color: rgba(39, 225, 194, 0.5);
+}
+
+.addContainer.usable .buttonAdd{
+    color: white;
+    background-color: rgba(39, 225, 194, 0.5);
+    border-radius: 50%;
+}
+
+.addContainer.disable{
+    background-color: gray;
+}
+
+.addContainer button{
+    border: 0;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.addContainer h4{
+    padding: 20px 0;
+    color: white;
+}
+
+.createGame{
+    text-decoration: none;
+}

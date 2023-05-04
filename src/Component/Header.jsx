@@ -3,7 +3,7 @@ import "./Header.css";
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import logo from "../Asset/logo-3.png";
 import { Link } from "react-router-dom";
-function Header({ onClick, theme, login }) {
+function Header({ onClick, theme, login, setAdmin }) {
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     if (user) {
@@ -17,6 +17,11 @@ function Header({ onClick, theme, login }) {
         token: user.token,
       });
       login();
+      if (user.isAdmin) {
+        setAdmin(true);
+      } else {
+        setAdmin(false);
+      }
     } else {
       setUser({
         name: null,
