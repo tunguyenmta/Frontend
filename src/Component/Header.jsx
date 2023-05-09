@@ -45,6 +45,7 @@ function Header({ onClick, theme, login, setAdmin }) {
       avatar: null,
       token: null,
     });
+    setAdmin(false);
     login();
   };
   return (

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Card.css";
 import axios from "axios";
-import { FaShoppingCart, FaRegCreditCard } from "react-icons/fa";
+import { FaShoppingCart, FaRegCreditCard, FaTrash } from "react-icons/fa";
 function Card({
   imgSrc,
   iconSrc,
@@ -15,6 +15,7 @@ function Card({
   reload,
   changeState,
   loading,
+  isAdmin,
 }) {
   const [data, setData] = useState({
     imgSrc,
@@ -27,6 +28,7 @@ function Card({
     isLogin,
     reload,
     loading,
+    isAdmin,
   });
   const [rating, setRating] = useState(0);
   // const blob = new Blob([Int8Array.from(data.imgSrc.data.data)], {
@@ -45,6 +47,15 @@ function Card({
     );
     if (rated) {
       setIsRate((prev) => !prev);
+      data.reload((prev) => !prev);
+      data.loading((prev) => !prev);
+    }
+  };
+  const deleteGame = async () => {
+    const deleted = await axios.delete(
+      `http://localhost:5000/api/game/${data.gameId}`
+    );
+    if (deleted.status === 200) {
       data.reload((prev) => !prev);
       data.loading((prev) => !prev);
     }
@@ -103,6 +114,13 @@ function Card({
           Now
         </button>
       </div>
+      {data.isAdmin ? (
+        <div className="delete-game">
+          <button onClick={deleteGame} className="btn-delete">
+            <FaTrash style={{ color: "red" }}></FaTrash> Delete Game
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 }

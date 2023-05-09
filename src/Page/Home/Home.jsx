@@ -12,7 +12,7 @@ function Home() {
   const [trigger, setTrigger] = useState(false);
   const [theme, setTheme] = useState("light");
   const [data, setData] = useState();
-  const [loading, setLoading] = useState("true");
+  const [loading, setLoading] = useState(true);
   const changeTheme = (Str) => {
     setTheme(Str);
   };
@@ -69,6 +69,7 @@ function Home() {
                   rated={element.rated}
                   theme={theme}
                   loading={setLoading}
+                  isAdmin={isAdmin}
                 ></Card>
               );
             })
