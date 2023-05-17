@@ -74,7 +74,7 @@
     margin-bottom: 30px;
 }
 
-.social-login a{
+.social-login button{
     background-color: white;
     display: inline-block;
     text-decoration: none;
@@ -88,40 +88,40 @@
     transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-.social-login a:focus-visible{
+.social-login button:focus-visible{
     outline: none;
 }
 
-.social-login a:nth-child(2){
+.social-login button:nth-child(2){
     color: #37306B;
 }
 
 
 
-.social-login a:first-of-type:hover{
+.social-login button:first-of-type:hover{
     background-color: crimson;
 }
 
-.social-login a:first-of-type:focus-visible{
+.social-login button:first-of-type:focus-visible{
     background-color: crimson;
 }
 
-.social-login a:nth-of-type(2):hover{
+.social-login button:nth-of-type(2):hover{
     background-color: #37306B;
     color: white;
 }
 
-.social-login a:nth-of-type(2):focus-visible{
+.social-login button:nth-of-type(2):focus-visible{
     background-color: #37306B;
     color: white;
 }
 
-.social-login a:last-of-type:hover{
+.social-login button:last-of-type:hover{
     background-color: blue;
     color: white;
 }
 
-.social-login a:last-of-type:focus-visible{
+.social-login button:last-of-type:focus-visible{
     background-color: blue;
     color: white;
 }

@@ -12,7 +12,7 @@ function DashboardRight({ content, avatar }) {
     for (let key in updateData) {
       formData.append(key, updateData[key]);
     }
-    console.log(formData);
+
     const updateUser = await axios.put(
       `http://localhost:5000/api/user/${
         JSON.parse(localStorage.getItem("user"))._id

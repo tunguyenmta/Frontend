@@ -37,6 +37,17 @@ function Login() {
     }
   };
 
+  const handleGoogle = async () => {
+    // let status = await axios.get("http://localhost:5000/api/user/auth/google");
+    // console.log(status);
+    window.open("http://localhost:5000/api/user/auth/google", "_self");
+  };
+  const handleGithub = () => {
+    window.open("http://localhost:5000/api/user/auth/github", "_self");
+  };
+  const handleFacebook = () => {
+    window.open("http://localhost:5000/api/user/auth/facebook", "_self");
+  };
   return (
     <div className="login-content d-flex justify-content-center align-items-center container-fluid">
       <div className="login-container">
@@ -57,15 +68,15 @@ function Login() {
           </button>
           <p className="text-light mt-3 mb-1">Or</p>
           <div className="social-login">
-            <Link className="social-item" to="/">
+            <button onClick={handleGoogle} className="social-item">
               <FcGoogle></FcGoogle>
-            </Link>
-            <Link className="social-item" to="/">
+            </button>
+            <button className="social-item" onClick={handleGithub}>
               <FaGithub></FaGithub>{" "}
-            </Link>
-            <Link className="social-item" to="/">
+            </button>
+            <button className="social-item" onClick={handleFacebook}>
               <FaFacebook></FaFacebook>{" "}
-            </Link>
+            </button>
           </div>
         </div>
       </div>

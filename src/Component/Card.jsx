@@ -16,6 +16,9 @@ function Card({
   changeState,
   loading,
   isAdmin,
+  addCart,
+  addGamesCart,
+  price,
 }) {
   const [data, setData] = useState({
     imgSrc,
@@ -29,7 +32,27 @@ function Card({
     reload,
     loading,
     isAdmin,
+    addCart,
+    price,
   });
+  async function getGame(id) {
+    let game = await axios.get(`http://localhost:5000/api/game/${id}`);
+    let data = await game.data;
+    addGamesCart((prev) => {
+      localStorage.setItem("gamesCart", JSON.stringify([...prev, data[0]]));
+      return [...prev, data[0]];
+    });
+  }
+  const addCartHandle = () => {
+    addCart((prev) => {
+      if (!prev.includes(data.gameId)) {
+        getGame(data.gameId);
+        return [...prev, data.gameId];
+      } else {
+        return [...prev];
+      }
+    });
+  };
   const [rating, setRating] = useState(0);
   // const blob = new Blob([Int8Array.from(data.imgSrc.data.data)], {
   // type: data.imgSrc.contentType,
@@ -76,7 +99,13 @@ function Card({
       <div className="card-desc">
         <p className="description">{data.desc}</p>
         <p className="vote">
-          &#9733;<span> {`${(data.vote / data.rated).toFixed(2)}/5`}</span>{" "}
+          &#9733;
+          <span>
+            {" "}
+            {data.rated !== 0
+              ? `${(data.vote / data.rated).toFixed(2)}/5`
+              : "0"}
+          </span>{" "}
           <span>{`(${data.rated} rated)`}</span>{" "}
         </p>
       </div>
@@ -104,16 +133,24 @@ function Card({
           )}
         </div>
       ) : null}
-      <div className="buyer">
-        <button className="btn-cart">
-          <FaShoppingCart style={{ color: "#FFD24C" }}></FaShoppingCart> Add to
-          Cart
-        </button>
-        <button className="btn-buy">
-          <FaRegCreditCard style={{ color: "#14C38E" }}></FaRegCreditCard> Buy
-          Now
-        </button>
+      <div className="price">
+        <h3>
+          <span>$</span>
+          {data.price}
+        </h3>
       </div>
+      {data.isAdmin || !data.isLogin ? null : (
+        <div className="buyer">
+          <button className="btn-cart" onClick={addCartHandle}>
+            <FaShoppingCart style={{ color: "#FFD24C" }}></FaShoppingCart> Add
+            to Cart
+          </button>
+          <button className="btn-buy">
+            <FaRegCreditCard style={{ color: "#14C38E" }}></FaRegCreditCard> Buy
+            Now
+          </button>
+        </div>
+      )}
       {data.isAdmin ? (
         <div className="delete-game">
           <button onClick={deleteGame} className="btn-delete">

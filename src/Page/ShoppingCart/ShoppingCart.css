@@ -1,0 +1,27 @@
+.cart{
+    /* background: salmon; */
+    height: 100vh;
+    background-color: rgba(101, 78, 146, 0.7);
+}
+
+.cart-title{
+    color: white;
+}
+
+.checkout button{
+    padding: 5px;
+    width: 120px;
+    border-radius: 20px;
+    border: 0;
+    /* background-color: salmon; */
+    color: white;
+    font-size: 16px;
+}
+
+.btn-back{
+    background-color: salmon;
+}
+
+.btn-checkout{
+    background-color: greenyellow;
+}

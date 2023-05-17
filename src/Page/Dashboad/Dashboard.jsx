@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
 import DashboardRight from "../../Component/DashboardRight";
-import { FaTwitter, FaFacebookF, FaGooglePlusG } from "react-icons/fa";
+import { FaTwitter, FaFacebookF, FaGooglePlusG, FaHome } from "react-icons/fa";
 function Dashboard() {
   const navigate = useNavigate();
   const [change, setChange] = useState({
@@ -76,8 +76,17 @@ function Dashboard() {
   //     navigate("/Login");
   //   }
   // };
+  const back = () => {
+    navigate("/");
+  };
   return (
     <div className="dashboard-container">
+      <div className="back-home text-center mb-3" onClick={back}>
+        <span className="text-danger">Back Home </span>
+        <FaHome
+          style={{ width: "30px", height: "30px", color: "salmon" }}
+        ></FaHome>
+      </div>
       <div className="dashboard-content d-flex">
         <div className="dashboard-left d-flex justify-content-end">
           <div className="left-content">

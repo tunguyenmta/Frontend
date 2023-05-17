@@ -108,6 +108,20 @@
 
 #cart{
     transition: scale 0.4s;
+    position: relative;
+}
+
+#cart .productNum{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    color: white;
+    background-color: blue;
+    width: 15px;
+    height: 15px;
+    font-size: 10px;
+    line-height: 15px;
+    border-radius: 50%;
 }
 
 #cart:hover{

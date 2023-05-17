@@ -118,6 +118,7 @@
 
 .dashboard-right{
     padding: 20px;
+    background: linear-gradient(90deg, #79f3c7, #65e5df, #55b2d3);
 }
 
 .btn-change{
@@ -139,4 +140,8 @@
     margin-top: 10px;
     background-color: #2C74B3;
     color: white;
+}
+
+.back-home{
+    cursor: pointer;
 }

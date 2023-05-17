@@ -3,20 +3,30 @@ import "./Header.css";
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import logo from "../Asset/logo-3.png";
 import { Link } from "react-router-dom";
-function Header({ onClick, theme, login, setAdmin }) {
+function Header({
+  onClick,
+  isLogin,
+  theme,
+  login,
+  setAdmin,
+  trigger,
+  loading,
+}) {
+  const [user, setUser] = useState({
+    name: null,
+    avatar: null,
+    token: null,
+  });
+
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     if (user) {
-      const blob = new Blob([Int8Array.from(user.img.data.data)], {
-        type: user.img.data.contentType,
-      });
-      const img = window.URL.createObjectURL(blob);
       setUser({
         name: user.name,
-        avatar: img,
+        avatar: user.img,
         token: user.token,
       });
-      login();
+
       if (user.isAdmin) {
         setAdmin(true);
       } else {
@@ -29,17 +39,14 @@ function Header({ onClick, theme, login, setAdmin }) {
         token: null,
       });
     }
-  }, []);
-  const [user, setUser] = useState({
-    name: null,
-    avatar: null,
-    token: null,
-  });
+  }, [isLogin]);
+
   const click = () => {
     onClick(theme === "light" ? "dark" : "light");
   };
   const logoutHandle = () => {
     localStorage.removeItem("user");
+    localStorage.removeItem("gamesCart");
     setUser({
       name: null,
       avatar: null,
@@ -47,6 +54,11 @@ function Header({ onClick, theme, login, setAdmin }) {
     });
     setAdmin(false);
     login();
+    trigger((prev) => !prev);
+    loading((prev) => !prev);
+    (function () {
+      window.open("http://localhost:5000/api/user/auth/logout", "_self");
+    })();
   };
   return (
     <div>
@@ -86,6 +98,11 @@ function Header({ onClick, theme, login, setAdmin }) {
               color: "orange",
             }}
           ></FaShoppingCart>
+          <span className="productNum">
+            {JSON.parse(localStorage.getItem("gamesCart"))
+              ? JSON.parse(localStorage.getItem("gamesCart")).length
+              : 0}
+          </span>
         </Link>
         <button
           className={theme === "dark" ? "active" : ""}

@@ -9,6 +9,7 @@ function CreateGame() {
     description: null,
     gameImage: null,
     iconImage: null,
+    price: null,
   });
   const navigate = useNavigate();
   const handleChange = (e) => {
@@ -30,6 +31,7 @@ function CreateGame() {
     });
     fd.append("creator", user._id);
     fd.append("title", gameInfo.title);
+    fd.append("price", gameInfo.price);
     fd.append("description", gameInfo.description);
     const result = await axios.post(
       "http://localhost:5000/api/game/creategame",
@@ -62,6 +64,14 @@ function CreateGame() {
         />
         <label htmlFor="icon">Game Icon</label>
         <input onChange={handleChange} id="icon" name="iconImage" type="file" />
+        <label htmlFor="price">Price</label>
+        <input
+          onChange={handleChange}
+          name="price"
+          id="price"
+          type="number"
+          min={0}
+        />
         <button onClick={handleClick} className="btn-create">
           Create Game
         </button>

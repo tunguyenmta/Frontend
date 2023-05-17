@@ -13,10 +13,21 @@ function Home() {
   const [theme, setTheme] = useState("light");
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
+  const [products, setProducts] = useState(
+    JSON.parse(localStorage.getItem("gamesCart"))
+      ? JSON.parse(localStorage.getItem("gamesCart")).map((ele) => ele._id)
+      : []
+  );
+  const [gamesCart, setGamesCart] = useState(
+    JSON.parse(localStorage.getItem("gamesCart"))
+      ? JSON.parse(localStorage.getItem("gamesCart"))
+      : []
+  );
   const changeTheme = (Str) => {
     setTheme(Str);
   };
-  const [isLogin, setIsLogin] = useState(false);
+
   const userLogin = () => {
     setIsLogin((prev) => !prev);
   };
@@ -31,6 +42,32 @@ function Home() {
     setData(gameData);
   }
   useEffect(() => {
+    fetch("http://localhost:5000/api/user/auth/login/success", {
+      method: "GET",
+      credentials: "include",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Credentials": true,
+      },
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          return res.json();
+        }
+        throw new Error("authentication has been failed!");
+      })
+      .then((data) => {
+        if (data.name) {
+          localStorage.setItem("user", JSON.stringify(data));
+          setIsLogin(true);
+        } else {
+          console.log("test");
+          setIsLogin(false);
+        }
+      })
+      .catch((err) => console.log(err));
+
     getData();
   }, [trigger]);
   return (
@@ -43,7 +80,10 @@ function Home() {
         setAdmin={setIsAdmin}
         onClick={changeTheme}
         theme={theme}
+        isLogin={isLogin}
         login={userLogin}
+        trigger={setTrigger}
+        loading={setLoading}
       ></Header>
       <div
         className={
@@ -70,6 +110,9 @@ function Home() {
                   theme={theme}
                   loading={setLoading}
                   isAdmin={isAdmin}
+                  addCart={setProducts}
+                  addGamesCart={setGamesCart}
+                  price={element.price}
                 ></Card>
               );
             })
